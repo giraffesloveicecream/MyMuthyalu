@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday My Bujji Baby 💖</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      color: #800020;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-top: 50px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 20px 0;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      background: #e63950;
+    }
+
+    .gif-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gif-container img {
+      width: 250px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) scale(1); opacity: 0; }
+      20%  { opacity: 1; }
+      100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+    }
+
+    /* Footer signature */
+    .signature {
+      margin-top: 50px;
+      font-size: 1.8em;
+      font-weight: bold;
+      font-style: italic;
+      color: #ff007f;
+      text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+      animation: glow 2s ease-in-out infinite alternate, sparkle 4s linear infinite;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #ff4da6, 0 0 10px #ff4da6, 0 0 15px #ff4da6;
+      }
+      to {
+        text-shadow: 0 0 20px #ff1ac6, 0 0 30px #ff66ff, 0 0 40px #ff99ff;
+      }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* Fireworks canvas */
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday My Bujji Baby! 💖</h1>
+  <h2>I love you 🤗❤️😘</h2>
+
+  <!-- Music button -->
+  <button onclick="playMusic()">🎶 Play Music</button>
+  <audio id="bgMusic" loop>
+    <source src="Adigaa.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="gif-container">
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWJ5Z3BsdGNzbGltZDVjczI2MHJ2d2swcnhsbGhhYjh3emdncWQyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LYPg9NdaO9ucuQhKoz/giphy.gif" alt="Cute bear hug">
+    <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Hearts animation">
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjJyOWtkdjhobXFtNDAxd2E4c3BrdW51YXYzc3hyNGN5c2JpcmlqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/x70o5dGVWROGQ/giphy.gif" alt="Bunny kiss">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWxzaTNoYWc4bzFwZmU4emhrbG1yc2JkMDdwamEwMWRsaTJ1bjFmaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mx2EIGDZX5XH2/giphy.gif" alt="Cat cuddles">
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMWt1Z2YzaGZzYWVyOWdwOHhjNHN1cXN1Z3NyeGF0cGs2eHl0d2JxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0OgdJVNjbcIifqSb7U/giphy.gif" alt="Heart confetti">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnFud29kb2xjY25iOTRzNW9wYjRpbnQ1MTAyNGM2dXpreTA2ZjgxeiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h5KvEIJD5jvUpd8NFt/giphy.gif" alt="Love letter">
+  </div>
+
+  <!-- Signature -->
+  <div class="signature">From your Ms Yo Yo cause she’s super swag 😎✌️💘✨</div>
+
+  <!-- Fireworks canvas -->
+  <canvas id="fireworks"></canvas>
+
+  <script>
+    // Floating hearts
+    const emojis = ["💖","💕","💞","💓","❤️","🤗","💗","💘"];
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }
+    setInterval(createHeart, 500);
+
+    // Music
+    function playMusic() {
+      const music = document.getElementById("bgMusic");
+      music.play();
+    }
+
+    // Fireworks
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    function random(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    class Firework {
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.particles = [];
+        for (let i = 0; i < 50; i++) {
+          this.particles.push({
+            x: x,
+            y: y,
+            angle: random(0, 2 * Math.PI),
+            speed: random(1, 6),
+            radius: 2,
+            alpha: 1
+          });
+        }
+      }
+      update() {
+        this.particles.forEach(p => {
+          p.x += Math.cos(p.angle) * p.speed;
+          p.y += Math.sin(p.angle) * p.speed;
+          p.alpha -= 0.01;
+        });
+      }
+      draw() {
+        this.particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, ${Math.floor(random(0,255))}, ${Math.floor(random(0,255))}, ${p.alpha})`;
+          ctx.fill();
+        });
+      }
+    }
+
+    let fireworks = [];
+    function animate() {
+      requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      fireworks.forEach((fw, i) => {
+        fw.update();
+        fw.draw();
+        fw.particles = fw.particles.filter(p => p.alpha > 0);
+        if (fw.particles.length === 0) {
+          fireworks.splice(i, 1);
+        }
+      });
+    }
+    animate();
+
+    window.addEventListener("click", e => {
+      fireworks.push(new Firework(e.clientX, e.clientY));
+    });
+  </script>
+</body>
+</html>
